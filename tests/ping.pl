@@ -3,7 +3,7 @@
 use Net::Ping;
 use DBI;
 
-$username = 'lieutenant';$password = 'Q3MWb6ZUjxbPauP9';$database = 'lieutenant';$hostname = 'localhost';
+$username = 'lieutenant';$password = '#';$database = 'lieutenant';$hostname = 'localhost';
 $dbh = DBI->connect("dbi:mysql:database=$database;" .
  "host=$hostname;port=3306", $username, $password);
 
