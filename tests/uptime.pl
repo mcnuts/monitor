@@ -1,10 +1,11 @@
 #!/usr/bin/perl -w
 use Sys::Load "uptime";
+use Time::Piece;
 
 if (int uptime() < 86400){
-	print "0\n";
+	$uptime = 0;
     }
 else{
-	print "1\n";
+	$uptime = 1;
     }
-
+my $date = Time::Piece->new->strftime('%d/%m/%Y');
