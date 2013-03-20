@@ -3,7 +3,7 @@
 use Net::Ping;
 use DBI;
 
-$username = 'lieutenant';$password = '#';$database = 'lieutenant';$hostname = 'localhost';
+$username = 'root';$password = 'U76138z123';$database = 'lieutenant';$hostname = 'localhost';
 $dbh = DBI->connect("dbi:mysql:database=$database;" .
  "host=$hostname;port=3306", $username, $password);
 
@@ -24,12 +24,8 @@ while($Row=$Select->fetchrow_hashref)
                 	$p = Net::Ping->new("icmp");
                 	$p->bind($my_addr);
                 	{
-                        	$a = shift(@hostname);
-                        	print "$a is ";
-                        	print "NOT " unless $p->ping($client, 1);
-                        	print "reachable.\n";
-                        	sleep(1);
-                	}
+                		if ($p->ping($client, 1)) { $ping = 1; } else { $ping = 0; }
+			}
                 	$p->close();
         	}
 
